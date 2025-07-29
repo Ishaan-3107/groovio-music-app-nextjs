@@ -1,0 +1,69 @@
+import { HoverEffect } from "./ui/card-hover-effect";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+
+function UpcomingWebinars() {
+  const webinars = [
+    {
+      title: "Mastering the Art of Vocal Performance",
+      description:
+        "Join award-winning vocalist Emma Rivera for an in-depth live session on vocal techniques, breath control, and performance tips for both beginners and advanced singers.",
+      link: "https://yourmusicapp.com/webinars/vocal-performance",
+    },
+    {
+      title: "Guitar Essentials: Chords, Rhythm & Expression",
+      description:
+        "In this interactive webinar, guitarist Leo Bennett will break down essential guitar skills, help you improve your rhythm, and explore expressive playing techniques.",
+      link: "https://yourmusicapp.com/webinars/guitar-essentials",
+    },
+    {
+      title: "Songwriting Workshop: From Idea to Hit",
+      description:
+        "Learn how to turn your musical ideas into complete songs with guidance from professional songwriter Maya Chen. Covers structure, lyrics, and melody creation.",
+      link: "https://yourmusicapp.com/webinars/songwriting-workshop",
+    },
+    {
+      title: "Demystifying Music Theory for Creatives",
+      description:
+        "Perfect for self-taught musicians, this webinar with music educator Dr. James Patel makes theory approachable and shows how to apply it creatively in your music.",
+      link: "https://yourmusicapp.com/webinars/music-theory",
+    },
+    {
+      title: "Live Music Production with Ableton Live",
+      description:
+        "Producer and DJ Chris Tan walks you through live music production using Ableton, including beat making, live effects, and mixing basics.",
+      link: "https://yourmusicapp.com/webinars/ableton-live",
+    },
+    {
+      title: "Building Confidence on Stage",
+      description:
+        "Overcome stage fright and improve your live performance presence with techniques from theater and music coach Alisha Gomez. Open Q&A at the end.",
+      link: "https://yourmusicapp.com/webinars/stage-confidence",
+    },
+  ];
+  return (
+    <div className="p-12 bg-gray-900">
+      <div className="text-center p-4">
+        <h1 className="text-teal-600 text-base tracking-wide font-semibold uppercase">
+          Featured Webinars
+        </h1>
+        <p className="text-3xl mt-4 antialiased font-bold sm:text-4xl">
+          Enhance your Musical Journey
+        </p>
+      </div>
+      <HoverEffect items={webinars} />
+      <div className="text-center mt-6">
+        <Link href="/webinars">
+          <Button
+            variant="ghost"
+            className="text-lg sm:p-6 hover:bg-blue-900/[0.4] hover:text-white hover:cursor-pointer transition-all-ease-in-out duration-200"
+          >
+            View all webinars
+          </Button>
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+export default UpcomingWebinars;
