@@ -37,8 +37,8 @@ const content = [
 
 function WhyChooseUs() {
   return (
-    <div className="w-full pt-4">
-      <h1 className="text-3xl text-center font-bold mb-6 mt-8">
+    <div className="w-full py-10 bg-white dark:bg-black sm:px-6 lg:px-8">
+      <h1 className="text-3xl text-center font-bold mb-6 mt-6 text-gray-900 dark:text-white">
         Why Choose Our Music Courses?
       </h1>
       <StickyScroll content={content} />

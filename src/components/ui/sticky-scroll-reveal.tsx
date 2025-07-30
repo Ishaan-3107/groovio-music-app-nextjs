@@ -1,8 +1,9 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import { useMotionValueEvent, useScroll } from "motion/react";
-import { motion } from "motion/react";
+import { useMotionValueEvent, useScroll } from "framer-motion";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { useTheme } from "@/components/ThemeProvider";
 
 export const StickyScroll = ({
   content,
@@ -19,12 +20,12 @@ export const StickyScroll = ({
   const [activeCard, setActiveCard] = React.useState(0);
   const ref = useRef<any>(null);
   const { scrollYProgress } = useScroll({
-    // uncomment line 22 and comment line 23 if you DONT want the overflow container and want to have it change on the entire page scroll
-    // target: ref
     container: ref,
     offset: ["start start", "end start"],
   });
   const cardLength = content.length;
+
+  const { theme } = useTheme();
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     const cardsBreakpoints = content.map((_, index) => index / cardLength);
@@ -41,30 +42,38 @@ export const StickyScroll = ({
     setActiveCard(closestBreakpointIndex);
   });
 
-  const backgroundColors = [
-    "#000000"
-  ];
-  const linearGradients = [
-    "linear-gradient(to bottom right, #06b6d4, #10b981)", // cyan-500 to emerald-500
-    "linear-gradient(to bottom right, #ec4899, #6366f1)", // pink-500 to indigo-500
-    "linear-gradient(to bottom right, #f97316, #eab308)", // orange-500 to yellow-500
+  const lightBackgroundColor = "#ffffff"; // White for light theme
+  const darkBackgroundColor = "#000000"; // Black for dark theme
+  const effectiveBackgroundColor = theme === 'light' ? lightBackgroundColor : darkBackgroundColor;
+
+  const lightLinearGradients = [
+    "linear-gradient(to bottom right, #a5f3fc, #67e8f9)",
+    "linear-gradient(to bottom right, #fbcfe8, #a78bfa)",
+    "linear-gradient(to bottom right, #fed7aa, #fcd34d)",
   ];
 
+  const darkLinearGradients = [
+    "linear-gradient(to bottom right, #06b6d4, #10b981)",
+    "linear-gradient(to bottom right, #ec4899, #6366f1)",
+    "linear-gradient(to bottom right, #f97316, #eab308)",
+  ];
+
+  const effectiveLinearGradients = theme === 'light' ? lightLinearGradients : darkLinearGradients;
+
   const [backgroundGradient, setBackgroundGradient] = useState(
-    linearGradients[0],
+    effectiveLinearGradients[0],
   );
 
   useEffect(() => {
-    setBackgroundGradient(linearGradients[activeCard % linearGradients.length]);
-  }, [activeCard]);
+    setBackgroundGradient(effectiveLinearGradients[activeCard % effectiveLinearGradients.length]);
+  }, [activeCard, theme, effectiveLinearGradients]);
 
   return (
     <motion.div
       animate={{
-        backgroundColor: backgroundColors[activeCard % backgroundColors.length],
+        backgroundColor: effectiveBackgroundColor,
       }}
       className="relative flex h-[30rem] justify-center space-x-10 overflow-y-auto rounded-md p-10 text-center sm:text-left"
-
       ref={ref}
     >
       <div className="div relative flex items-start px-4">
@@ -76,9 +85,9 @@ export const StickyScroll = ({
                   opacity: 0,
                 }}
                 animate={{
-                  opacity: activeCard === index ? 1 : 0.3,
+                  opacity: activeCard === index ? 1 : (index > activeCard ? 0.3 : 1),
                 }}
-                className="text-2xl font-bold text-slate-100"
+                className="text-2xl font-bold text-gray-900 dark:text-slate-100"
               >
                 {item.title}
               </motion.h2>
@@ -87,9 +96,9 @@ export const StickyScroll = ({
                   opacity: 0,
                 }}
                 animate={{
-                  opacity: activeCard === index ? 1 : 0.3,
+                  opacity: activeCard === index ? 1 : (index > activeCard ? 0.3 : 1),
                 }}
-                className="text-kg mt-10 max-w-sm text-slate-300"
+                className="text-lg mt-10 max-w-sm text-gray-700 dark:text-slate-300"
               >
                 {item.description}
               </motion.p>

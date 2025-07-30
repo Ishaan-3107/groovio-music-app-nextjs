@@ -95,6 +95,20 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  /* Navbar variables (Light Theme) */
+  --navbar-bg: oklch(1 0 0 / 0.7); /* White with transparency */
+  --navbar-border: oklch(0 0 0 / 0.1); /* Light border */
+  --navbar-text: oklch(0.145 0 0); /* Dark text */
+
+  /* Theme Toggle Button variables (Light Theme) */
+  --theme-button-bg: oklch(0.922 0 0); /* Light grey background */
+  --theme-button-text: oklch(0.205 0 0); /* Dark text */
+  --theme-button-hover-bg: oklch(0.85 0 0); /* Slightly darker grey on hover */
+  --theme-button-ring: oklch(0.708 0 0); /* Ring color */
+
+  /* Mobile Menu Overlay variables (Light Theme) */
+  --mobile-menu-bg: oklch(1 0 0 / 0.9); /* White with transparency */
+  --mobile-menu-text: oklch(0.145 0 0); /* Dark text */
 }
 
 .dark {
@@ -129,6 +143,20 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+  /* Navbar variables (Dark Theme) */
+  --navbar-bg: oklch(0 0 0 / 0.3); /* Black with transparency */
+  --navbar-border: oklch(1 0 0 / 0.2); /* Light border */
+  --navbar-text: oklch(0.985 0 0); /* Light text */
+
+  /* Theme Toggle Button variables (Dark Theme) */
+  --theme-button-bg: oklch(0.269 0 0); /* Dark grey background */
+  --theme-button-text: oklch(0.985 0 0); /* Light text */
+  --theme-button-hover-bg: oklch(0.35 0 0); /* Slightly lighter grey on hover */
+  --theme-button-ring: oklch(0.556 0 0); /* Ring color */
+
+  /* Mobile Menu Overlay variables (Dark Theme) */
+  --mobile-menu-bg: oklch(0 0 0 / 0.8); /* Black with transparency */
+  --mobile-menu-text: oklch(0.985 0 0); /* Light text */
 }
 
 @layer base {

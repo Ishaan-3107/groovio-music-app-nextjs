@@ -13,6 +13,7 @@ interface Course {
   price: number;
   instructor: string;
   isFeatured: boolean;
+  image: string;
 }
 
 export default function FeaturedCourses() {
@@ -20,12 +21,13 @@ export default function FeaturedCourses() {
     (course: Course) => course.isFeatured
   );
   return (
-    <div className="bg-gray-900 py-10 px-4 sm:px-6 lg:px-8">
+    <div className="bg-gray-50 dark:bg-gray-900 py-10 px-4 sm:px-6 lg:px-8">
+      
       <div className="text-center mb-8">
-        <h1 className="text-teal-600 text-base tracking-wide font-semibold uppercase">
+        <h1 className="text-teal-700 dark:text-teal-600 text-base tracking-wide font-semibold uppercase">
           Featured Courses
         </h1>
-        <p className="text-3xl mt-4 antialiased font-bold sm:text-4xl">
+        <p className="text-3xl mt-4 antialiased font-bold sm:text-4xl text-gray-800 dark:text-white">
           Learn with the Best
         </p>
       </div>
@@ -35,17 +37,21 @@ export default function FeaturedCourses() {
             {featuredCourses.map((course: Course) => (
               <div key={course.id} className="flex justify-center">
                 <BackgroundGradient className="flex flex-col rounded-md overflow-hidden h-full max-w-sm">
-                  <div className="p-4 sm:p-6 bg-zinc-900 rounded-[21px] flex flex-col text-center items-center flex-grow">
-                    <p className="text-lg sm:text-xl mb-4 font-semibold">
+                  <div className="p-4 sm:p-6 bg-white dark:bg-zinc-900 rounded-[21px] flex flex-col text-center items-center flex-grow">
+                    <p className="text-lg sm:text-xl mb-4 font-semibold text-gray-900 dark:text-white">
                       {course.title}
                     </p>
-                    <p className="text-sm text-white/[0.7] flex-grow">
+                    <div className="w-full h-40 rounded-lg mb-4 overflow-hidden">
+                      <img src={course.image} alt={course.title} className="w-full h-full object-cover mb-4 hover:scale-110 hover:rounded-lg transition-all duration-200" />
+                    </div>
+                    
+                    <p className="text-sm text-gray-700 dark:text-white/[0.7] flex-grow">
                       {course.description}
                     </p>
                     <Link href={`/courses/${course.slug}`}>
                       <Button
                         variant="ghost"
-                        className="bg-primary text-base text-primary-foreground shadow-xs mt-4 hover:bg-white/[0.06] hover:text-white hover:cursor-pointer transition-all-ease-in-out duration-200"
+                        className="border border-black dark:border-white text-black dark:text-white shadow-xs mt-4 hover:bg-black/[0.8] dark:hover:bg-white dark:hover:text-black hover:text-white hover:text-[15px] hover:cursor-pointer transition-all duration-200 ease-in-out"
                       >
                         Learn more
                       </Button>
@@ -61,7 +67,7 @@ export default function FeaturedCourses() {
         <Link href="/courses">
           <Button
             variant="ghost"
-            className="text-lg sm:p-6 hover:bg-blue-900/[0.4] hover:text-white hover:cursor-pointer transition-all-ease-in-out duration-200"
+            className="text-lg sm:p-6 text-gray-700 hover:bg-gray-200 hover:text-gray-900 hover:text-[19px] dark:text-white/[0.8] dark:hover:bg-blue-900/[0.4] dark:hover:text-white hover:cursor-pointer transition-all duration-200 ease-in-out"
           >
             View all courses
           </Button>

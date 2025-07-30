@@ -1,7 +1,8 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
+import { useTheme } from "@/components/ThemeProvider";
 
 export const InfiniteMovingCards = ({
   items,
@@ -20,13 +21,16 @@ export const InfiniteMovingCards = ({
   pauseOnHover?: boolean;
   className?: string;
 }) => {
-  const containerRef = React.useRef<HTMLDivElement>(null);
-  const scrollerRef = React.useRef<HTMLUListElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const scrollerRef = useRef<HTMLUListElement>(null);
+
+  const { theme } = useTheme();
 
   useEffect(() => {
     addAnimation();
   }, []);
   const [start, setStart] = useState(false);
+
   function addAnimation() {
     if (containerRef.current && scrollerRef.current) {
       const scrollerContent = Array.from(scrollerRef.current.children);
@@ -43,6 +47,7 @@ export const InfiniteMovingCards = ({
       setStart(true);
     }
   }
+
   const getDirection = () => {
     if (containerRef.current) {
       if (direction === "left") {
@@ -58,6 +63,7 @@ export const InfiniteMovingCards = ({
       }
     }
   };
+
   const getSpeed = () => {
     if (containerRef.current) {
       if (speed === "fast") {
@@ -69,11 +75,15 @@ export const InfiniteMovingCards = ({
       }
     }
   };
+
+  const fadeColor = theme === 'light' ? 'oklch(1 0 0)' : 'oklch(0 0 0)';
+
   return (
     <div
       ref={containerRef}
       className={cn(
-        "scroller relative z-20 max-w-7xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
+        "scroller relative z-20 max-w-7xl overflow-hidden",
+        `[mask-image:radial-gradient(ellipse_at_center,transparent_60%,${fadeColor}_90%)]`,
         className,
       )}
     >
@@ -87,23 +97,41 @@ export const InfiniteMovingCards = ({
       >
         {items.map((item, idx) => (
           <li
-            className="relative w-[350px] max-w-full shrink-0 rounded-2xl bg-[#101828] px-8 py-6 md:w-[450px] dark:border-zinc-700"
-            key={item.name}
+            className="relative w-[350px] max-w-full shrink-0 rounded-2xl px-8 py-6 md:w-[450px]"
+            style={{
+              backgroundColor: `var(--card)`,
+              color: `var(--card-foreground)`,
+              border: `1px solid var(--border)`,
+            }}
+            key={item.name + idx}
           >
             <blockquote>
               <div
                 aria-hidden="true"
-                className="user-select-none pointer-events-none absolute -top-0.5 -left-0.5 -z-1 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)]"
+                className="user-select-none pointer-events-none absolute -top-0.5 -left-0.5 -z-1 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)] rounded-2xl"
+                style={{
+                  background: `linear-gradient(90deg,rgb(131, 90, 255), #c084fc)`, // Using the dark theme's gradient
+                  filter: `blur(${theme === 'light' ? '4px' : '4px'})`,
+                }}
               ></div>
-              <span className="relative z-20 text-base leading-[1.6] font-normal text-white dark:text-gray-100">
+              <span
+                className="relative z-20 text-base leading-[1.6] font-normal"
+                style={{ color: `var(--card-foreground)` }}
+              >
                 {item.quote}
               </span>
               <div className="relative z-20 mt-6 flex flex-row items-center">
                 <span className="flex flex-col gap-1">
-                  <span className="text-sm leading-[1.6] font-normal text-neutral-400 dark:text-gray-400">
+                  <span
+                    className="text-sm leading-[1.6] font-normal"
+                    style={{ color: `var(--muted-foreground)` }}
+                  >
                     {item.name}
                   </span>
-                  <span className="text-sm leading-[1.6] font-normal text-neutral-400 dark:text-gray-400">
+                  <span
+                    className="text-sm leading-[1.6] font-normal"
+                    style={{ color: `var(--muted-foreground)` }}
+                  >
                     {item.title}
                   </span>
                 </span>

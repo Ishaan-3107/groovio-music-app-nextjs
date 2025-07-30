@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { WavyBackground } from "./ui/wavy-background";
 import { BackgroundLines } from "./ui/background-lines";
 import { AnimatedTooltip } from "./ui/animated-tooltip";
 
@@ -59,12 +58,12 @@ function Instructors() {
 ];
 
   return (
-    <div className="relative h-[40rem] overflow-hidden flex items-center justify-center">
+    <div className="relative h-[40rem] overflow-hidden flex items-center justify-center bg-white dark:bg-black">
       <BackgroundLines className="flex items-center justify-center w-full flex-col px-4">
-        <h2 className="text-2xl md:text-4xl font-bold mb-8 text-center">
+        <h2 className="text-2xl md:text-4xl font-bold mb-8 text-center text-gray-900 dark:text-white">
           Meet Our Instructors
         </h2>
-        <p className="text-base md:text-lg text-center mb-12 max-w-2xl">
+        <p className="text-base md:text-lg text-center mb-12 max-w-2xl text-gray-700 dark:text-white/[0.7]">
           Our instructors are passionate about music and dedicated to helping
           you achieve your musical goals. With years of experience and a love
           for teaching, they are here to guide you every step of the way.

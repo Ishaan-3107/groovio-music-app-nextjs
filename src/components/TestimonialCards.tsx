@@ -3,6 +3,7 @@
 import { InfiniteMovingCards } from "./ui/infinite-moving-cards";
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
+import { useTheme } from "@/components/ThemeProvider";
 
 function TestimonialCards() {
   const testimonials = [
@@ -81,6 +82,7 @@ function TestimonialCards() {
   ];
 
   const [speed, setSpeed] = useState<"fast" | "normal" | "slow">("slow");
+  const { theme } = useTheme();
 
   useEffect(() => {
     const updateSpeed = () => {
@@ -95,20 +97,25 @@ function TestimonialCards() {
     window.addEventListener("resize", updateSpeed); // listen for screen resize
 
     return () => window.removeEventListener("resize", updateSpeed); // cleanup
-  }, []); 
+  }, []);
+
+  const lightGridColor = "#e4e4e7"; // zinc-200 or neutral-200 for light
+  const darkGridColor = "#262626"; // neutral-800 for dark (your current)
+
+  const effectiveGridColor = theme === "light" ? lightGridColor : darkGridColor;
 
   return (
-    <div className="h-[40rem] w-full bg-black bg-grid-white/[0.2] relative flex flex-col items-center justify-center overflow-hidden">
+    <div className="h-[40rem] w-full bg-background relative flex flex-col items-center justify-center overflow-hidden">
       <div
-        className={cn(
-          "absolute inset-0",
-          "[background-size:40px_40px]",
-          "[background-image:linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px)]",
-          "[background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)]"
-        )}
+        className="absolute inset-0"
+        style={{
+          backgroundSize: "40px 40px",
+          backgroundImage: `linear-gradient(to right, ${effectiveGridColor} 1px, transparent 1px), linear-gradient(to bottom, ${effectiveGridColor} 1px, transparent 1px)`,
+        }}
       />
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_50%,black)] dark:bg-black"></div>
-      <h1 className="text-center text-3xl font-bold mb-6 z-20">
+
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-background [mask-image:radial-gradient(ellipse_at_center,transparent_50%,black)]"></div>
+      <h1 className="text-center text-3xl font-bold mb-6 z-20 text-gray-900 dark:text-white">
         Hear our Harmony: Voices of Success
       </h1>
       <div className="flex justify-center w-full overflow-hidden px-4 sm:px-6 lg:px-8">
