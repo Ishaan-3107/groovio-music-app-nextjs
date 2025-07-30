@@ -70,4 +70,4 @@ npm run lint
 ## 💬 Feedback & Contribution
 
 Found a bug, have a feature request, or want to contribute?  
-Please feel free to open an issue or submit a pull request on the [GitHub repository](https://github.com/your-username/groovio-music-app). Your feedback and contributions are highly welcome!
+Please feel free to open an issue or submit a pull request on the [GitHub repository](https://github.com/Ishaan-3107/music-app-nextjs). Your feedback and contributions are highly welcome!
