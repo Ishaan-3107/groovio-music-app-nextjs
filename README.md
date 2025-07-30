@@ -24,7 +24,7 @@ Follow these steps to set up and run Groovio on your local machine for developme
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/Ishaan-3107/music-app-nextjs.git
+    git clone https://github.com/Ishaan-3107/groovio-music-app-nextjs.git
     cd music-app-nextjs
     ```
 2.  **Install dependencies:**
@@ -70,4 +70,4 @@ npm run lint
 ## 💬 Feedback & Contribution
 
 Found a bug, have a feature request, or want to contribute?  
-Please feel free to open an issue or submit a pull request on the [GitHub repository](https://github.com/Ishaan-3107/music-app-nextjs). Your feedback and contributions are highly welcome!
+Please feel free to open an issue or submit a pull request on the [GitHub repository](https://github.com/Ishaan-3107/groovio-music-app-nextjs). Your feedback and contributions are highly welcome!
