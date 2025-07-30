@@ -12,7 +12,7 @@ export default function CoursesPage() {
       <div className="flex flex-wrap justify-center">
         {courseData.courses.map((course) => (
           <CardContainer key={course.id} className="m-4">
-            <CardBody className="bg-gray-100 dark:bg-zinc-900 border border-black/[0.1] dark:border-white/[0.1] p-6 rounded-lg shadow-lg flex flex-col justify-between h-full"> {/* Add flex-col justify-between and h-full */}
+            <CardBody className="bg-zinc-200 dark:bg-zinc-900 border border-black/[0.1] dark:border-white/[0.1] p-6 rounded-lg shadow-lg flex flex-col justify-between h-full"> {/* Add flex-col justify-between and h-full */}
               <CardItem className="text-xl font-semibold mb-4">{course.title}</CardItem>
               <CardItem
                 as="p"
@@ -34,7 +34,7 @@ export default function CoursesPage() {
               <CardItem as="a" href={`/courses/${course.slug}`} className="text-teal-700 dark:text-teal-600 hover:underline mt-auto">
                 <Button
                         variant="ghost"
-                        className="border border-black dark:border-white text-black dark:text-white shadow-xs mt-4 hover:bg-black/[0.8] dark:hover:bg-white dark:hover:text-black hover:text-white hover:text-[15px] hover:cursor-pointer transition-all duration-200 ease-in-out"
+                        className="border border-black dark:border-white text-black dark:text-white shadow-xs mt-4 hover:bg-black dark:hover:bg-white dark:hover:text-black hover:text-white hover:text-[15px] hover:cursor-pointer transition-all duration-200 ease-in-out"
                       >
                         Learn more
                       </Button>

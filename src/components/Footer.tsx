@@ -3,7 +3,7 @@ import Link from "next/link";
 
 function Footer() {
   return (
-    <footer className="bg-gray-100 dark:bg-gray-900/[0.2] text-gray-400 py-12">
+    <footer className="bg-gray-200 dark:bg-gray-900/[0.2] text-gray-400 py-12">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 py-10 px-8">
         <div>
           <h1 className="text-black dark:text-white text-xl">About Us</h1>

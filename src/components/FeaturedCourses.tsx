@@ -51,7 +51,7 @@ export default function FeaturedCourses() {
                     <Link href={`/courses/${course.slug}`}>
                       <Button
                         variant="ghost"
-                        className="border border-black dark:border-white text-black dark:text-white shadow-xs mt-4 hover:bg-black/[0.8] dark:hover:bg-white dark:hover:text-black hover:text-white hover:text-[15px] hover:cursor-pointer transition-all duration-200 ease-in-out"
+                        className="border border-black dark:border-white text-black dark:text-white shadow-xs mt-4 hover:bg-black dark:hover:bg-white dark:hover:text-black hover:text-white hover:text-[15px] hover:cursor-pointer transition-all duration-200 ease-in-out"
                       >
                         Learn more
                       </Button>

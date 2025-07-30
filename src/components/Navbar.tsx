@@ -17,7 +17,7 @@ function Navbar({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "fixed top-0 inset-x-0 z-50 px-4 py-3 backdrop-blur-lg border-b",
+        "fixed top-0 inset-x-0 z-50 px-4 py-3 backdrop-blur-sm dark:backdrop-blur-lg border-b",
         "bg-[var(--navbar-bg)] border-[var(--navbar-border)] text-[var(--navbar-text)]",
         className
       )}
@@ -78,12 +78,13 @@ function Navbar({ className }: { className?: string }) {
           <button
             onClick={toggleTheme}
             className="relative ml-4 p-2 rounded-full hover:cursor-pointer transition-colors duration-200
-             bg-[var(--theme-button-bg)] text-[var(--theme-button-text)] hover:bg-[var(--theme-button-hover-bg)] focus:ring-[var(--theme-button-ring)]
+             bg-[var(--theme-button-bg)] dark:bg-white/[0.1] text-[var(--theme-button-text)] hover:bg-[var(--theme-button-hover-bg)] dark:hover:bg-white/[0.2] focus:ring-[var(--theme-button-ring)]
              group"
             aria-label="Toggle theme"
           >
             {theme === "dark" ? (
-              <i className="fas fa-sun w-5 h-5"></i>
+              // <i className="fas fa-sun w-5 h-5"></i>
+              <img src="/sun-white.png" alt="Light Mode Icon" className="w-5 h-5" />
             ) : (
               <i className="fas fa-moon w-5 h-5"></i>
             )}

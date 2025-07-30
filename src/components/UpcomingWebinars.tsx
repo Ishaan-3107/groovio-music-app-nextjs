@@ -42,7 +42,7 @@ function UpcomingWebinars() {
     },
   ];
   return (
-    <div className="p-12 bg-gray-50 dark:bg-gray-900">
+    <div className="p-12 bg-gray-200 dark:bg-gray-900">
       <div className="text-center p-4">
         <h1 className="text-teal-700 dark:text-teal-600 text-base tracking-wide font-semibold uppercase">
           Featured Webinars
@@ -56,7 +56,7 @@ function UpcomingWebinars() {
         <Link href="/webinars">
           <Button
             variant="ghost"
-            className="text-lg sm:p-6 text-gray-700 hover:bg-gray-200 hover:text-gray-900 hover:text-[19px] dark:text-white/[0.8] dark:hover:bg-blue-900/[0.4] dark:hover:text-white hover:cursor-pointer transition-all duration-200 ease-in-out"
+            className="text-lg sm:p-6 text-gray-700 hover:bg-gray-300 hover:text-gray-900 hover:text-[19px] dark:text-white/[0.8] dark:hover:bg-blue-900/[0.4] dark:hover:text-white hover:cursor-pointer transition-all duration-200 ease-in-out"
           >
             View all webinars
           </Button>
