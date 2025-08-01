@@ -7,11 +7,18 @@ import { useTheme } from "@/components/ThemeProvider";
 
 function Navbar({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // State for mobile menu visibility
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isCoursesOpen, setIsCoursesOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+    setIsCoursesOpen(false);
+  };
+
+  const toggleCoursesDropdown = (e: React.MouseEvent) => {
+    e.stopPropagation(); // Prevent the click from bubbling up and closing the main menu
+    setIsCoursesOpen(!isCoursesOpen);
   };
 
   return (
@@ -84,7 +91,11 @@ function Navbar({ className }: { className?: string }) {
           >
             {theme === "dark" ? (
               // <i className="fas fa-sun w-5 h-5"></i>
-              <img src="/sun-white.png" alt="Light Mode Icon" className="w-5 h-5" />
+              <img
+                src="/sun-white.png"
+                alt="Light Mode Icon"
+                className="w-5 h-5"
+              />
             ) : (
               <i className="fas fa-moon w-5 h-5"></i>
             )}
@@ -104,18 +115,27 @@ function Navbar({ className }: { className?: string }) {
         </div>
 
         {/* Mobile Menu Toggle Button (Hamburger Icon) - Visible on small screens */}
-        <div className="md:hidden">
+        <div className="md:hidden flex ietms-center justify-between">
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors duration-200 mr-2
+            className="p-2 rounded-full transition-colors duration-200 mr-2
                        bg-[var(--theme-button-bg)] text-[var(--theme-button-text)] hover:bg-[var(--theme-button-hover-bg)] focus:ring-[var(--theme-button-ring)]"
             aria-label="Toggle theme"
           >
-            {theme === "dark" ? (
-              <i className="fas fa-sun w-5 h-5"></i>
-            ) : (
-              <i className="fas fa-moon w-5 h-5"></i>
-            )}
+            <div
+              key={theme} // Force re-render for animation on toggle
+              className="w-5 h-5"
+            >
+              {theme === "dark" ? (
+                <img
+                  src="/sun-white.png"
+                  alt="Light Mode Icon"
+                  className="w-full h-full"
+                />
+              ) : (
+                <i className="fas fa-moon w-full h-full"></i>
+              )}
+            </div>
           </button>
           <button
             onClick={toggleMobileMenu}
@@ -123,7 +143,9 @@ function Navbar({ className }: { className?: string }) {
             aria-label="Toggle navigation"
           >
             <svg
-              className="w-6 h-6"
+              className={`w-6 h-6 transition-transform duration-300 transform ${
+                isMobileMenuOpen ? "rotate-90" : "rotate-0"
+              }`}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -168,33 +190,53 @@ function Navbar({ className }: { className?: string }) {
                 className="text-base"
               />
             </Link>
-            <MenuItem
-              setActive={setActive}
-              active={active}
-              item="Our Courses"
-              className="text-base"
-            >
-              <div className="flex flex-col space-y-4 text-base text-center mt-4">
-                <HoveredLink href="/courses" onClick={toggleMobileMenu}>
-                  All Courses
-                </HoveredLink>
-                <HoveredLink href="/music-theory" onClick={toggleMobileMenu}>
-                  Basic Music Theory
-                </HoveredLink>
-                <HoveredLink href="/composition" onClick={toggleMobileMenu}>
-                  Advanced Composition
-                </HoveredLink>
-                <HoveredLink href="/song-writing" onClick={toggleMobileMenu}>
-                  Song Writing
-                </HoveredLink>
-                <HoveredLink
-                  href="/music-production"
-                  onClick={toggleMobileMenu}
+            {/* Dedicated mobile dropdown for "Our Courses" */}
+            <div className="w-full text-center">
+              <button
+                onClick={toggleCoursesDropdown}
+                className="w-full py-2 px-4 text-base font-medium flex justify-center items-center"
+              >
+                Our Courses
+                <svg
+                  className={`w-4 h-4 ml-2 transition-transform duration-200 ${
+                    isCoursesOpen ? "rotate-180" : ""
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  Music Production
-                </HoveredLink>
-              </div>
-            </MenuItem>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+              {isCoursesOpen && (
+                <div className="flex flex-col space-y-2 mt-2 w-full">
+                  <HoveredLink href="/courses" onClick={toggleMobileMenu}>
+                    All Courses
+                  </HoveredLink>
+                  <HoveredLink href="/music-theory" onClick={toggleMobileMenu}>
+                    Basic Music Theory
+                  </HoveredLink>
+                  <HoveredLink href="/composition" onClick={toggleMobileMenu}>
+                    Advanced Composition
+                  </HoveredLink>
+                  <HoveredLink href="/song-writing" onClick={toggleMobileMenu}>
+                    Song Writing
+                  </HoveredLink>
+                  <HoveredLink
+                    href="/music-production"
+                    onClick={toggleMobileMenu}
+                  >
+                    Music Production
+                  </HoveredLink>
+                </div>
+              )}
+            </div>
             <Link href={"/contact"} onClick={toggleMobileMenu}>
               <MenuItem
                 setActive={setActive}

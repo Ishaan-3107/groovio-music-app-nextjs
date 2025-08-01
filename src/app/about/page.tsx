@@ -28,7 +28,7 @@ export default function AboutPage() {
             />
           </div>
           <div className="md:order-1">
-            <h2 className="text-4xl font-bold mb-6">The Groovio Difference</h2>
+            <h2 className="text-4xl text-center md:text-left font-bold mb-6">The Groovio Difference</h2>
             <p className="text-lg text-muted-foreground mb-4">
               Born from a shared love for melodies and rhythms, Groovio was founded by a team of dedicated musicians and educators. We saw a gap in online music learning – a need for comprehensive, engaging, and truly personalized instruction that goes beyond basic tutorials.
             </p>
@@ -42,15 +42,15 @@ export default function AboutPage() {
         <section className="text-center mb-20 md:mb-24">
           <h2 className="text-4xl font-bold mb-10">Our Guiding Principles</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-gray-100 dark:bg-card p-8 rounded-xl shadow-md border border-border">
+            <div className="bg-gray-100 dark:bg-card p-8 rounded-xl hover:translate-y-[-6px] hover:shadow-2xl transition-all duration-200 shadow-md border border-border">
               <h3 className="text-2xl font-semibold mb-4 text-card-foreground">Expert Instruction</h3>
               <p className="text-muted-foreground">Learn from industry professionals and seasoned educators with proven teaching methodologies.</p>
             </div>
-            <div className="bg-gray-100 dark:bg-card p-8 rounded-xl shadow-md border border-border">
+            <div className="bg-gray-100 dark:bg-card p-8 rounded-xl hover:translate-y-[-6px] hover:shadow-2xl transition-all duration-200 shadow-md border border-border">
               <h3 className="text-2xl font-semibold mb-4 text-card-foreground">Accessible Learning</h3>
               <p className="text-muted-foreground">High-quality music education, available anytime, anywhere, at your own pace.</p>
             </div>
-            <div className="bg-gray-100 dark:bg-card p-8 rounded-xl shadow-md border border-border">
+            <div className="bg-gray-100 dark:bg-card p-8 rounded-xl hover:translate-y-[-6px] hover:shadow-2xl transition-all duration-200 shadow-md border border-border">
               <h3 className="text-2xl font-semibold mb-4 text-card-foreground">Thriving Community</h3>
               <p className="text-muted-foreground">Connect with fellow musicians, share progress, and collaborate in a supportive global network.</p>
             </div>
