@@ -42,7 +42,10 @@ export default function FeaturedCourses() {
                       {course.title}
                     </p>
                     <div className="w-full h-40 rounded-lg mb-4 overflow-hidden">
+                      <Link href={`/courses/${course.slug}`}>
                       <img src={course.image} alt={course.title} className="w-full h-full object-cover mb-4 hover:scale-110 hover:rounded-lg transition-all duration-200" />
+                      </Link>
+                      
                     </div>
                     
                     <p className="text-sm text-gray-700 dark:text-white/[0.7] flex-grow">
