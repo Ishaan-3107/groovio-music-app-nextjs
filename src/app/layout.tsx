@@ -35,6 +35,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
           referrerPolicy="no-referrer"
         />
+        <link rel="icon" href="/groovio-icon.png" sizes="any" />
         <title>GROOVIO</title>
       </head>
       <body
