@@ -21,7 +21,7 @@ export const HoverEffect = ({
   return (
     <div
       className={cn(
-        "grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  py-10",
+        "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10",
         className
       )}
     >
@@ -29,15 +29,15 @@ export const HoverEffect = ({
         <a
           href={item?.link}
           key={item?.link}
-          className="relative group  block p-2 h-full w-full"
+          className="relative group block p-2 h-full w-full"
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
         >
           <AnimatePresence>
             {hoveredIndex === idx && (
               <motion.span
-                className="absolute inset-0 h-full w-full z-0 rounded-3xl
-                           bg-gray-200/[0.9] dark:bg-slate-800/[0.8] block"
+                className="absolute inset-0 h-full w-full z-0 rounded-2xl
+                           bg-slate-300/[0.8] dark:bg-slate-800/[0.8] block"
                 layoutId="hoverBackground"
                 initial={{ opacity: 0 }}
                 animate={{

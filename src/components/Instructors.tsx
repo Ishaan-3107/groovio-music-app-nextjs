@@ -55,6 +55,12 @@ function Instructors() {
     image:
       "https://images.unsplash.com/photo-1588367171393-c0f77a14faff?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njh8fGluZGlhbiUyMHdvbWFufGVufDB8fDB8fHww",
   },
+  {
+    id: 8,
+    name: "Nikhil Dubey",
+    designation: "Classical Music Composer",
+    image: "https://plus.unsplash.com/premium_photo-1682089869602-2ec199cc501a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8aW5kaWFuJTIwbWFufGVufDB8fDB8fHww"
+  }
 ];
 
   return (

@@ -24,7 +24,7 @@ function Navbar({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "fixed top-0 inset-x-0 z-50 px-4 py-3 backdrop-blur-sm dark:backdrop-blur-lg border-b",
+        "fixed top-0 inset-x-0 z-50 px-4 py-3 backdrop-blur-md dark:backdrop-blur-lg border-b",
         "bg-[var(--navbar-bg)] border-[var(--navbar-border)] text-[var(--navbar-text)]",
         className
       )}

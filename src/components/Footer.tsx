@@ -58,7 +58,7 @@ function Footer() {
             <span>
               <Link
                 href={"/"}
-                className="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors duration-300"
+                className="inline-block text-gray-600 dark:text-gray-400 hover:text-black hover:-translate-y-1 dark:hover:text-white transition-all duration-200"
               >
                 <i className="fa-brands fa-facebook"></i>
               </Link>
@@ -66,7 +66,7 @@ function Footer() {
             <span>
               <Link
                 href={"/"}
-                className="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors duration-300"
+                className="inline-block text-gray-600 dark:text-gray-400 hover:text-black hover:-translate-y-1 dark:hover:text-white transition-all duration-200"
               >
                 <i className="fa-brands fa-instagram"></i>
               </Link>
@@ -74,7 +74,7 @@ function Footer() {
             <span>
               <Link
                 href={"/"}
-                className="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors duration-300"
+                className="inline-block text-gray-600 dark:text-gray-400 hover:text-black hover:-translate-y-1 dark:hover:text-white transition-all duration-200"
               >
                 <i className="fa-brands fa-x-twitter"></i>
               </Link>
@@ -82,7 +82,7 @@ function Footer() {
             <span>
               <Link
                 href={"/"}
-                className="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors duration-300"
+                className="inline-block text-gray-600 dark:text-gray-400 hover:text-black hover:-translate-y-1 dark:hover:text-white transition-all duration-200"
               >
                 <i className="fa-brands fa-youtube"></i>
               </Link>
