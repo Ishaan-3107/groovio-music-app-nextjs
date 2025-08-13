@@ -28,11 +28,12 @@ function HeroSection() {
               <Link href={"/courses"}>
                 <Button
                   borderRadius="1.2rem"
-                  className="text-sm text-white hover:cursor-pointer hover:text-[15px] hover:bg-[#002739ff] transition-all duration-200"
+                  className="text-sm font-semibold text-black dark:text-white hover:cursor-pointer hover:text-[15px] hover:bg-[#bcc4ce] dark:hover:bg-[#002739ff] transition-all duration-200"
                 >
                   Explore courses
                 </Button>
               </Link>
+
             </div>
           </div>
         </div>
