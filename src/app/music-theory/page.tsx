@@ -34,7 +34,7 @@ export default function MusicTheoryPage() {
   return (
     <main className="min-h-screen text-gray-900 dark:text-white mt-22 p-8 transition-colors duration-300">
       <Spotlight className="-top-40 left-0 md:-top-20 md:left-60"
-        fill="white" />
+        fill="blue" />
       {/* Header */}
       <motion.h1
         initial={{ opacity: 0, y: -20 }}
@@ -71,7 +71,7 @@ export default function MusicTheoryPage() {
           onClick={() => router.back()}
           className="px-6 py-2 border border-black dark:border-white bg-white dark:bg-black hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black text-black dark:text-white hover:cursor-pointer rounded-lg font-medium transition-all duration-200"
         >
-          ← Back
+          <i className="fa-solid fa-arrow-left"></i>&nbsp;&nbsp;Back
         </button>
       </div>
     </main>

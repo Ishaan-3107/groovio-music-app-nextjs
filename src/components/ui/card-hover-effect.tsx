@@ -73,7 +73,7 @@ export const Card = ({
       className={cn(
         "rounded-2xl h-full w-full p-4 overflow-hidden relative z-20",
         "bg-white border border-gray-200 group-hover:border-blue-300", // Light theme defaults
-        "dark:bg-black/[0.5] dark:border-white/[0.2] dark:group-hover:border-slate-700", // Dark theme overrides
+        "dark:bg-black/[0.8] dark:border-white/[0.2] dark:group-hover:border-slate-700", // Dark theme overrides
         className
       )}
     >
