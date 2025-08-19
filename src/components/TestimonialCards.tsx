@@ -124,7 +124,7 @@ function TestimonialCards() {
             items={testimonials}
             direction="left"
             speed={speed}
-            pauseOnHover={false}
+            pauseOnHover={true}
           />
         </div>
       </div>

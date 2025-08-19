@@ -6,6 +6,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { LoadingProvider } from "@/components/LoadingProvider";
 import Footer from "@/components/Footer";
 
 const geistSans = Geist({
@@ -42,12 +43,14 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider>
-        <div className="relative flex w-full items-center justify-center">
-          <Navbar />
-        </div>
-        
-        {children}
-        <Footer />
+          <LoadingProvider>
+            <div className="relative flex w-full items-center justify-center">
+              <Navbar />
+            </div>
+            
+            {children}
+            <Footer />
+          </LoadingProvider>
         </ThemeProvider>
       </body>
     </html>

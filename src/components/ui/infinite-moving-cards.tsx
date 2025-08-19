@@ -53,12 +53,12 @@ export const InfiniteMovingCards = ({
       if (direction === "left") {
         containerRef.current.style.setProperty(
           "--animation-direction",
-          "forwards",
+          "forwards"
         );
       } else {
         containerRef.current.style.setProperty(
           "--animation-direction",
-          "reverse",
+          "reverse"
         );
       }
     }
@@ -76,7 +76,19 @@ export const InfiniteMovingCards = ({
     }
   };
 
-  const fadeColor = theme === 'light' ? 'oklch(1 0 0)' : 'oklch(0 0 0)';
+  const fadeColor = theme === "light" ? "oklch(1 0 0)" : "oklch(0 0 0)";
+  const getColorFromName = (name: string) => {
+    const colors = [
+      "#f87171", // red-400
+      "#fbbf24", // yellow-400
+      "#34d399", // green-400
+      "#60a5fa", // blue-400
+      "#a78bfa", // purple-400
+      "#f472b6", // pink-400
+    ];
+    const index = name.charCodeAt(0) % colors.length;
+    return colors[index];
+  };
 
   return (
     <div
@@ -84,7 +96,7 @@ export const InfiniteMovingCards = ({
       className={cn(
         "scroller relative z-20 max-w-7xl overflow-hidden",
         `[mask-image:radial-gradient(ellipse_at_center,transparent_60%,${fadeColor}_90%)]`,
-        className,
+        className
       )}
     >
       <ul
@@ -92,12 +104,12 @@ export const InfiniteMovingCards = ({
         className={cn(
           "flex w-max min-w-full shrink-0 flex-nowrap gap-4 py-4",
           start && "animate-scroll",
-          pauseOnHover && "hover:[animation-play-state:paused]",
+          pauseOnHover && "hover:[animation-play-state:paused]"
         )}
       >
         {items.map((item, idx) => (
           <li
-            className="relative w-[350px] max-w-full shrink-0 rounded-2xl px-8 py-6 md:w-[450px]"
+            className="relative w-[350px] max-w-full shrink-0 rounded-2xl px-8 py-6 md:w-[450px] hover:cursor-pointer"
             style={{
               backgroundColor: `var(--card)`,
               color: `var(--card-foreground)`,
@@ -111,7 +123,7 @@ export const InfiniteMovingCards = ({
                 className="user-select-none pointer-events-none absolute -top-0.5 -left-0.5 -z-1 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)] rounded-2xl"
                 style={{
                   background: `linear-gradient(90deg,rgb(131, 90, 255), #c084fc)`, // Using the dark theme's gradient
-                  filter: `blur(${theme === 'light' ? '4px' : '4px'})`,
+                  filter: `blur(${theme === "light" ? "4px" : "4px"})`,
                 }}
               ></div>
               <span
@@ -126,6 +138,12 @@ export const InfiniteMovingCards = ({
                     className="text-sm leading-[1.6] font-normal"
                     style={{ color: `var(--muted-foreground)` }}
                   >
+                    <span
+                      className="px-2 py-1 rounded-full me-3 text-white"
+                      style={{ backgroundColor: getColorFromName(item.name) }}
+                    >
+                      {item.name[0]}
+                    </span>
                     {item.name}
                   </span>
                   <span

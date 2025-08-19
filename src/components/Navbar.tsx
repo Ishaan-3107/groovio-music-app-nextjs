@@ -59,7 +59,7 @@ function Navbar({ className }: { className?: string }) {
                 <HoveredLink href="/composition">
                   Advanced Composition
                 </HoveredLink>
-                <HoveredLink href="/song-writing">Song Writing</HoveredLink>
+                <HoveredLink href="/song-writing">Songwriting</HoveredLink>
                 <HoveredLink href="/music-production">
                   Music Production
                 </HoveredLink>
@@ -82,6 +82,24 @@ function Navbar({ className }: { className?: string }) {
               ></MenuItem>
             </Link>
           </Menu>
+
+          {/* Auth Buttons */}
+          <div className="flex items-center space-x-3 ml-4">
+            <Link href="/login">
+              <button
+                className="px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 hover:cursor-pointer text-[var(--navbar-text)] hover:text-[var(--primary)] hover:bg-[var(--accent)] border border-transparent hover:border-[var(--border)]"
+              >
+                Log In
+              </button>
+            </Link>
+            <Link href="/signup">
+              <button
+                className="px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 hover:cursor-pointer text-[var(--primary-background)] hover:bg-[var(--primary)]/90 hover:text-[var(--primary-foreground)] border border-[var(--primary)] hover:border-[var(--primary)] hover:shadow-md"
+              >
+                Sign Up
+              </button>
+            </Link>
+          </div>
           <button
             onClick={toggleTheme}
             className="relative ml-4 p-2 rounded-full hover:cursor-pointer transition-colors duration-200
@@ -97,7 +115,11 @@ function Navbar({ className }: { className?: string }) {
                 className="w-5 h-5"
               />
             ) : (
-              <i className="fas fa-moon w-5 h-5"></i>
+              <img
+                  src="/moon.png"
+                  alt="Dark Mode Icon"
+                  className="w-5 h-5"
+                />
             )}
 
             {/* Tooltip Label */}
@@ -133,7 +155,11 @@ function Navbar({ className }: { className?: string }) {
                   className="w-full h-full"
                 />
               ) : (
-                <i className="fas fa-moon w-full h-full"></i>
+                <img
+                  src="/moon.png"
+                  alt="Dark Mode Icon"
+                  className="w-full h-full"
+                />
               )}
             </div>
           </button>
@@ -253,6 +279,31 @@ function Navbar({ className }: { className?: string }) {
                 className="text-base"
               />
             </Link>
+            {/* Mobile Auth Buttons */}
+            <div className="flex flex-col space-y-4 w-full px-8 mt-4">
+              <Link href="/login" onClick={toggleMobileMenu}>
+                <button
+                  className="w-full px-4 py-3 text-base font-medium rounded-lg transition-all duration-200
+                                 text-[var(--navbar-text)] hover:text-[var(--primary)] 
+                                 hover:bg-[var(--accent)] border border-transparent
+                                 hover:border-[var(--border)] focus:outline-none focus:ring-2 
+                                 focus:ring-[var(--ring)] focus:ring-offset-2"
+                >
+                  Log In
+                </button>
+              </Link>
+              <Link href="/signup" onClick={toggleMobileMenu}>
+                <button
+                  className="w-full px-4 py-3 text-base font-medium rounded-lg transition-all duration-200
+                                 bg-[var(--primary)] text-[var(--primary-foreground)] 
+                                 hover:bg-[var(--primary)]/90 border border-[var(--primary)]
+                                 focus:outline-none focus:ring-2 focus:ring-[var(--ring)] 
+                                 focus:ring-offset-2 shadow-sm hover:shadow-md"
+                >
+                  Sign Up
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
       )}
