@@ -6,6 +6,7 @@ import courseData from "@/data/music_courses.json";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Spotlight } from "@/components/ui/Spotlight";
 
 const difficultyMap: {
   [key: string]: { color: string; icon: string };
@@ -26,7 +27,8 @@ const difficultyMap: {
 
 export default function CoursesPage() {
   return (
-    <div className="min-h-screen bg-white dark:bg-black/[0.96] pt-33 text-center text-black dark:text-white">
+    <div className="min-h-screen bg-white dark:bg-black/[0.96] pt-36 pb-10 text-center text-black dark:text-white">
+      <Spotlight className="-top-40 left-0 md:-top-20 md:left-60" fill="skyblue"/>
       <h1 className="text-2xl text-center md:text-3xl font-bold mb-3">
         All Courses ({courseData.courses.length})
       </h1>

@@ -49,7 +49,7 @@ const LoadingButton: React.FC<LoadingButtonProps> = ({
     >
       {isLoading ? (
         <>
-          <LoadingSpinner size="sm" showText={false} className="mr-2" />
+          <LoadingSpinner size="sm" showText={false} className="mr-2" variant="simple" />
           {loadingText || "Loading..."}
         </>
       ) : (

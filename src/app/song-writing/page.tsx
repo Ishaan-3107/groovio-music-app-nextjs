@@ -35,7 +35,7 @@ export default function SongwritingPage() {
   ];
 
   return (
-    <main className="min-h-screen text-gray-900 dark:text-white mt-22 p-8 transition-colors duration-300">
+    <main className="min-h-screen text-gray-900 dark:text-white mt-22 md:mt-28 p-8 transition-colors duration-300">
       <Spotlight
         className="-top-40 left-0 md:-top-20 md:left-60"
         fill="green"
@@ -65,7 +65,7 @@ export default function SongwritingPage() {
             key={section.title}
             initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: i * 0.15 }}
+            transition={{ duration: 0.2, delay: i * 0.15 }}
             className="bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl p-8 hover:bg-gray-50 dark:hover:bg-white/10 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-lg"
           >
             <div className="h-2 w-20 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full mb-6"></div>

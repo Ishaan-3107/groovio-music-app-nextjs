@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-white dark:bg-black/[0.96] text-white pt-30 pb-16 antialiased">
+    <div className="min-h-screen bg-white dark:bg-black/[0.96] text-white pt-38 pb-16 antialiased">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="text-center mb-16">

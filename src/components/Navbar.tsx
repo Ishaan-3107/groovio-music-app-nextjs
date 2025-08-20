@@ -84,18 +84,14 @@ function Navbar({ className }: { className?: string }) {
           </Menu>
 
           {/* Auth Buttons */}
-          <div className="flex items-center space-x-3 ml-4">
+          <div className="flex items-center space-x-2 ml-4">
             <Link href="/login">
-              <button
-                className="px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 hover:cursor-pointer text-[var(--navbar-text)] hover:text-[var(--primary)] hover:bg-[var(--accent)] border border-transparent hover:border-[var(--border)]"
-              >
+              <button className="px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 hover:cursor-pointer text-[var(--navbar-text)] hover:text-[var(--primary)] hover:bg-black/[0.1] dark:hover:bg-white/[0.1] border border-transparent hover:border-[var(--border)]">
                 Log In
               </button>
             </Link>
             <Link href="/signup">
-              <button
-                className="px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 hover:cursor-pointer text-[var(--primary-background)] hover:bg-[var(--primary)]/90 hover:text-[var(--primary-foreground)] border border-[var(--primary)] hover:border-[var(--primary)] hover:shadow-md"
-              >
+              <button className="px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 hover:cursor-pointer text-[var(--primary-background)] hover:bg-[var(--primary)]/90 hover:text-[var(--primary-foreground)] border border-[var(--primary)] hover:border-[var(--primary)] hover:shadow-md">
                 Sign Up
               </button>
             </Link>
@@ -115,11 +111,7 @@ function Navbar({ className }: { className?: string }) {
                 className="w-5 h-5"
               />
             ) : (
-              <img
-                  src="/moon.png"
-                  alt="Dark Mode Icon"
-                  className="w-5 h-5"
-                />
+              <img src="/moon.png" alt="Dark Mode Icon" className="w-5 h-5" />
             )}
 
             {/* Tooltip Label */}

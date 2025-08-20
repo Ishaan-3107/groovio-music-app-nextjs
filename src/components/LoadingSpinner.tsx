@@ -1,19 +1,22 @@
 "use client";
 import React from "react";
 import { cn } from "@/lib/utils";
+import { LoaderOne, LoaderTwo, LoaderThree, LoaderFour, LoaderFive } from "./ui/loader";
 
 interface LoadingSpinnerProps {
   size?: "sm" | "md" | "lg" | "xl";
   className?: string;
   showText?: boolean;
   text?: string;
+  variant?: "simple" | "compact" | "svg" | "glitch" | "shimmer";
 }
 
 const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({
   size = "md",
   className,
   showText = true,
-  text = "Loading..."
+  text = "Loading...",
+  variant = "simple"
 }) => {
   const sizeClasses = {
     sm: "w-6 h-6",
@@ -29,33 +32,27 @@ const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({
     xl: "text-xl"
   };
 
+  const renderAceternityLoader = () => {
+    switch (variant) {
+      case "simple":
+        return <LoaderOne />;
+      case "compact":
+        return <LoaderTwo />;
+      case "svg":
+        return <LoaderThree />;
+      case "glitch":
+        return <LoaderFour text={text} />;
+      case "shimmer":
+        return <LoaderFive text={text} />;
+      default:
+        return <LoaderOne />;
+    }
+  };
+
   return (
     <div className={cn("flex flex-col items-center justify-center space-y-3", className)}>
-      {/* Music-themed spinning vinyl record */}
-      <div className={cn("relative", sizeClasses[size])}>
-        {/* Outer ring */}
-        <div className={cn(
-          "absolute inset-0 rounded-full border-2 border-[var(--primary)]/20",
-          sizeClasses[size]
-        )} />
-        
-        {/* Spinning vinyl */}
-        <div className={cn(
-          "absolute inset-0 rounded-full border-2 border-transparent border-t-[var(--primary)] animate-spin",
-          sizeClasses[size]
-        )} />
-        
-        {/* Center dot (like vinyl record center) */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-[var(--primary)] rounded-full" />
-        
-        {/* Inner grooves effect */}
-        <div className={cn(
-          "absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full border border-[var(--primary)]/30",
-          size === "sm" ? "w-3 h-3" : size === "md" ? "w-4 h-4" : size === "lg" ? "w-6 h-6" : "w-8 h-8"
-        )} />
-      </div>
-      
-      {showText && (
+      {renderAceternityLoader()}
+      {showText && variant !== "glitch" && variant !== "shimmer" && (
         <p className={cn(
           "text-[var(--muted-foreground)] font-medium animate-pulse",
           textSizeClasses[size]

@@ -43,7 +43,7 @@ export default function MusicProductionPage() {
   ];
 
   return (
-    <main className="min-h-screen text-gray-900 dark:text-white mt-22 p-8 transition-colors duration-300">
+    <main className="min-h-screen text-gray-900 dark:text-white mt-22 md:mt-28 p-8 transition-colors duration-300">
       <Spotlight className="-top-40 left-0 md:-top-20 md:left-60" fill="orange" />
       
       {/* Header */}
@@ -68,8 +68,8 @@ export default function MusicProductionPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: i * 0.05 }}
-            className="bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl p-6 hover:bg-gray-50 dark:hover:bg-white/10 transition-colors duration-300 shadow-sm hover:shadow-lg"
+            transition={{ duration: 0.3, ease: "easeOut", delay: i * 0.05 }}
+            className="bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl p-6 hover:bg-gray-50 dark:hover:bg-white/10 transition-all duration-300 shadow-sm hover:shadow-lg hover:scale-105"
           >
             <div className="h-1.5 w-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mb-4"></div>
             <h2 className="text-lg font-semibold mb-2 text-orange-700 dark:text-orange-300">{section.title}</h2>
@@ -82,7 +82,7 @@ export default function MusicProductionPage() {
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.8 }}
+        transition={{ duration: 0.3, delay: 0.5 }}
         className="mt-16 max-w-4xl mx-auto"
       >
         <div className="bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 border border-orange-200 dark:border-orange-800/50 rounded-xl p-8">

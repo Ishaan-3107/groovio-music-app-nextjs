@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-background text-foreground pt-30 pb-16 antialiased">
+    <div className="min-h-screen bg-background text-foreground pt-38 pb-16 antialiased">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <section className="text-center mb-20 md:mb-24">
           <h1 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">

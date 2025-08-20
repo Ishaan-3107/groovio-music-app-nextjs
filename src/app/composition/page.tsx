@@ -35,7 +35,7 @@ export default function AdvancedCompositionPage() {
   ];
 
   return (
-    <main className="min-h-screen text-gray-900 dark:text-white mt-22 p-8 transition-colors duration-300">
+    <main className="min-h-screen text-gray-900 dark:text-white mt-22 md:mt-28 p-8 transition-colors duration-300">
       <Spotlight
         className="-top-40 left-0 md:-top-20 md:left-60"
         fill="purple"
@@ -65,7 +65,7 @@ export default function AdvancedCompositionPage() {
             key={topic.title}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: i * 0.15 }}
+            transition={{ duration: 0.2, delay: i * 0.15 }}
             className="bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl p-8 hover:bg-gray-50 dark:hover:bg-white/10 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-lg"
           >
             <div className="h-2 w-16 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full mb-6"></div>
@@ -83,7 +83,7 @@ export default function AdvancedCompositionPage() {
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.8 }}
+        transition={{ duration: 0.2, delay: 0.5 }}
         className="mt-16 max-w-4xl mx-auto"
       >
         <div className="bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 border border-purple-200 dark:border-purple-800/50 rounded-xl p-8">

@@ -9,7 +9,7 @@ type SpotlightProps = {
 
 export const Spotlight = ({ className, fill }: SpotlightProps) => {
   const { theme } = useTheme();
-  const fillOpacity = theme === "dark" ? 0.25 : 0.31;
+  const fillOpacity = theme === "dark" ? 0.25 : 0.25;
   return (
     <svg
       className={cn(

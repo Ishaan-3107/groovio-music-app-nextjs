@@ -30,7 +30,7 @@ export const MenuItem = ({
       <motion.p
         transition={{ duration: 0.3 }}
         className={cn(
-          "cursor-pointer hover:text-black dark:hover:text-white hover:translate-y-[-2px] transition-transform duration-200 ease-in-out",
+          "cursor-pointer hover:text-pink-500 dark:hover:text-pink-500 transition-all duration-200 ease-in-out",
           "text-[var(--navbar-text)]",
           className
         )}
@@ -119,7 +119,7 @@ export const HoveredLink = ({ children, ...rest }: any) => {
   return (
     <a
       {...rest}
-      className="text-black dark:text-white dark:text-neutral-200 hover:text-black/[0.8] dark:hover:text-white/[0.6] transition duration-200 ease-in-out"
+      className="text-black dark:text-white dark:text-neutral-200 hover:text-pink-500 dark:hover:text-pink-500 transition-all duration-200 ease-in-out"
     >
       {children}
     </a>
