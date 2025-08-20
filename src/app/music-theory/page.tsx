@@ -105,6 +105,7 @@ export default function MusicTheoryPage() {
           className="px-6 py-2 border border-black dark:border-white bg-white dark:bg-black hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black text-black dark:text-white hover:cursor-pointer rounded-lg font-medium transition-all duration-200"
         >
           <i className="fa-solid fa-arrow-left"></i>&nbsp;&nbsp;Back
+          <i className="fa-solid fa-arrow-left"></i>&nbsp;&nbsp;Back
         </button>
       </div>
     </main>
